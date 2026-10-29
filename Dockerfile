@@ -5,7 +5,7 @@
 # =============================================================================
 
 # TODO(step-4a): set the builder base image as node:20.11-slim and name the stage "builder".
-FROM node:20.11-slim AS builder
+FROM node:24-bookworm-slim AS builder
 RUN apt-get update \
        && apt-get upgrade -y \
        && rm -rf /var/lib/apt/lists/*
@@ -24,7 +24,7 @@ COPY app/ .
 # =============================================================================
 
 # TODO(step-4d): set the runtime base image (same tag as step-4a for consistency).
-FROM node:20.11-slim
+FROM node:24-bookworm-slim
 
 WORKDIR /app
 
